@@ -1,0 +1,5 @@
+.DS_Store
+.vscode
+/.idea
+/docker-compose.override.yml
+/api/behat.yml

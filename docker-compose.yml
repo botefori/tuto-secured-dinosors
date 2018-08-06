@@ -1,0 +1,16 @@
+version: '2.0'
+
+services:
+    proxy:
+        image: jwilder/nginx-proxy
+        volumes:
+            - "/var/run/docker.sock:/tmp/docker.sock:ro"
+
+    secured-dinosors:
+        build: docker/php70
+        image: secured-dinosors/php70
+        volumes:
+          - ./phpunit:/var/www/html
+        environment:
+            VIRTUAL_HOST: secure-dinosors.site.docker
+            DOMAIN_NAME: secure-dinosors.site.docker

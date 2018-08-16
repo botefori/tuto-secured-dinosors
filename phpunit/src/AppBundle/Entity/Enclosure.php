@@ -44,6 +44,11 @@ class Enclosure
         return $this->dinosaurs;
     }
 
+    public function getSecurities() : Collection
+    {
+        return $this->securities;
+    }
+
     public function addDinosaur(Dinosaur $dinosaur)
     {
         if(!$this->canAddDinosaur($dinosaur))

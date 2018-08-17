@@ -13,6 +13,15 @@
         <testsuite name="Project Test Suite">
             <directory>tests</directory>
         </testsuite>
+        <testsuite name="entities">
+            <directory>tests/*Bundle/Entity</directory>
+        </testsuite>
+        <testsuite name="factories">
+            <directory>tests/*Bundle/Factory</directory>
+        </testsuite>
+        <testsuite name="services">
+            <directory>tests/*Bundle/Service</directory>
+        </testsuite>
     </testsuites>
     <filter>
         <whitelist>

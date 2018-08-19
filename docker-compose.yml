@@ -14,3 +14,20 @@ services:
         environment:
             VIRTUAL_HOST: secure-dinosors.site.docker
             DOMAIN_NAME: secure-dinosors.site.docker
+
+    database:
+        image: mariadb:10.1
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: symfony
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            PMA_HOST: database
+            VIRTUAL_HOST: phpmyadmin.secured.docker
+            DOMAIN_NAME: secure-dinosors.site.docker
+        depends_on:
+          - database

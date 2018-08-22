@@ -25,4 +25,21 @@ class DefaultControllerTest extends WebTestCase
         $this->assertCount(3, $table->filter('tbody tr'));
     }
 
+    public function testThatThereIsAnAlarmButtonWithoutSecurity()
+    {
+
+        $client = $this->makeClient();
+        $crawler = $client->request('GET', '/');
+
+        $fixtures = $this->loadFixtures([
+            LoadBasicParkData::class,
+            LoadSecurityData::class,
+        ])->getReferenceRepository();
+
+        $enclosure = $fixtures->getReference('carnivorous-enclosure');
+        $selector = sprintf('#enclosure-%s', $enclosure->getId());
+
+        $this->assertGreaterThan(0, $crawler->filter($selector)->count());
+    }
+
 }

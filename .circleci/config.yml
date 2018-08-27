@@ -33,5 +33,9 @@ jobs:
         - ./vendor
         key: v1-dependencies-{{ checksum "./phpunit/composer.json" }}
 
+    - run: cd phpunit && mkdir var/data
+
+    - run: cd phpunit && bin/console cache:clear
+
     # run tests!
     - run: cd phpunit && vendor/bin/phpunit

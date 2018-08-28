@@ -42,8 +42,7 @@ class LoadBasicParkData extends Fixture implements OrderedFixtureInterface
         string $genus,
         bool $isCarnivorous,
         int $length
-    )
-    {
+    ) {
         $dinosaur = new Dinosaur($genus, $isCarnivorous);
         $dinosaur->setEnclosure($enclosure);
         $dinosaur->setLength($length);

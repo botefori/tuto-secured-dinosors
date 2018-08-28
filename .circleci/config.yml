@@ -38,7 +38,10 @@ jobs:
     - run: cd phpunit && bin/console cache:clear
 
     # run tests!
-    - run: cd phpunit && vendor/bin/phpunit --log-junit ~/phpunit/junit.xml
+    - run: cd phpunit && vendor/bin/phpunit -vvvv --log-junit ~/phpunit/junit.xml
+
+    # run cs test
+    - run: cd phpunit && vendor/bin/php-cs-fixer fix src --no-interaction --dry-run --diff -vvv --cache-file=.php_cs.cache --using-cache=no
 
     - store_test_results:
 

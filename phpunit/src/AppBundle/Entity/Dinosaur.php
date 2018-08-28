@@ -85,7 +85,4 @@ class Dinosaur
     {
         $this->enclosure = $enclosure;
     }
-
-
-
 }

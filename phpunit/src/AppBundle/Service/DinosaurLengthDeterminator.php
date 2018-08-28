@@ -4,12 +4,10 @@ declare(strict_types=1);
 
 namespace AppBundle\Service;
 
-
 use AppBundle\Entity\Dinosaur;
 
 class DinosaurLengthDeterminator
 {
-
     public function getLengthFromSpecification(string $specification): int
     {
         $availableLengths = [

@@ -3,7 +3,6 @@
 
 namespace AppBundle\Factory;
 
-
 use AppBundle\Entity\Dinosaur;
 use AppBundle\Service\DinosaurLengthDeterminator;
 
@@ -13,13 +12,13 @@ class DinosaurFactory
 
     public function __construct(DinosaurLengthDeterminator $determinator)
     {
-      $this->lengthDeterminator = $determinator;
+        $this->lengthDeterminator = $determinator;
     }
 
 
     public function growVelociraptor(int $length) : Dinosaur
     {
-      return $this->createDinosaur('Velociraptor', true, $length);
+        return $this->createDinosaur('Velociraptor', true, $length);
     }
 
     public function growFromSpecification(string $specification) : Dinosaur
@@ -31,7 +30,7 @@ class DinosaurFactory
 
         $length = $this->lengthDeterminator->getLengthFromSpecification($specification);
 
-        if(stripos($specification, 'carnivorous') !== false){
+        if (stripos($specification, 'carnivorous') !== false) {
             $isCarnivorous = true;
         }
 
@@ -42,12 +41,10 @@ class DinosaurFactory
 
     private function createDinosaur(string $genus, bool $isCarnivorous, int $length) : Dinosaur
     {
-        $dinosaur =  new Dinosaur($genus ,$isCarnivorous);
+        $dinosaur =  new Dinosaur($genus, $isCarnivorous);
 
         $dinosaur->setLength($length);
 
         return $dinosaur;
     }
-
-
 }

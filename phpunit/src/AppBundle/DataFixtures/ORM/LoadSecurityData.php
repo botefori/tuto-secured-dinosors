@@ -33,8 +33,7 @@ class LoadSecurityData extends Fixture implements OrderedFixtureInterface
         Enclosure $enclosure,
         string $name,
         bool $isActive
-    )
-    {
+    ) {
         $enclosure->addSecurity(new Security($name, $isActive, $enclosure));
     }
 }

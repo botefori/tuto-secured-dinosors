@@ -38,4 +38,12 @@ jobs:
     - run: cd phpunit && bin/console cache:clear
 
     # run tests!
-    - run: cd phpunit && vendor/bin/phpunit
+    - run: cd phpunit && vendor/bin/phpunit --log-junit ~/phpunit/junit.xml
+
+    - store_test_results:
+
+        path: ~/phpunit
+
+    - store_artifacts:
+
+        path: ~/phpunit
